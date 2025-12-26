@@ -10,6 +10,16 @@ const reasons = {
     8: "Me inspiras a ser una mejor persona cada día",
     9: "Tratas de entenderme incluso cuando no me entiendo a mí misma",
     10: "Siempre te precupas por nuestra relación aunque a veces no ponga de mi parte",
+    11: "Me gustan tus labios, besas muy rico",
+    12: "Me gusta tu lunar rojo, el que está abajo de tu ojito",
+    13: "Eres un hombre increíble, de corazón noble",
+    14: "Tu voz me encanta, me gusta escucharte hablar",
+    15: "Cuando me ves te pones super feliz y eso me hace sentir especial",
+    16: "Siempre haces el esfuerzo de pasar tiempo conmigo",
+    17: "Haces que me sienta segura y protegida",
+    18: "Siempre me ayudas cuando lo necesito, espero también poder ayudarte",
+    19: "Me encanta tu sentido del humor, siempre me haces reír",
+    20: "Me encanta tu risa, siempre se ponen mas chiquitos tus ojitos",
 };
 
 // ===== ELEMENTOS DEL DOM =====
@@ -98,9 +108,9 @@ function restart() {
         starInput.value = '';
         errorMsg.classList.remove('show');
         
-        setTimeout(() => {
-            searchBox.style.animation = '';
-        }, 600);
+        // setTimeout(() => {
+        //     searchBox.style.animation = '';
+        // }, 600);
     }, 400);
 }
 

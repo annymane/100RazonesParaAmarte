@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #ffd700;
+    --secondary: #ffed4e;
+    --dark: #0a0e27;
+    --darker: #050810;
+    --light: #ffffff;
+    --accent: #a78bfa;
+    --card-bg: rgba(15, 23, 42, 0.85);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(180deg, #0a0e27 0%, #1a1b3d 50%, #0f1729 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Estrellas de fondo estáticas */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.star.small {
+    width: 1px;
+    height: 1px;
+}
+
+.star.medium {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.star.large {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Estrellas fugaces */
+.shooting-stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1),
+                0 0 0 4px rgba(255, 255, 255, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.5);
+    animation: shoot 3s linear infinite;
+    opacity: 0;
+}
+
+@keyframes shoot {
+    0% {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-300px) translateY(300px);
+    }
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, white, transparent);
+    transform: translateX(-50px) translateY(0);
+}
+
+.container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 300;
+    color: var(--primary);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+                 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.header .subtitle {
+    font-size: 1rem;
+    color: var(--secondary);
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px rgba(255, 237, 78, 0.5);
+}
+
+.search-box {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 215, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+    animation: scaleIn 0.6s ease-out 0.3s both;
+}
+
+@keyframes scaleIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+.search-box label {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--light);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+#starNumber {
+    flex: 1;
+    padding: 18px 25px;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--light);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#starNumber::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#starNumber:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1),
+                0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+#searchBtn {
+    padding: 18px 35px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark);
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+}
+
+#searchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+}
+
+#searchBtn:active {
+    transform: translateY(0);
+}
+
+.result {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    padding: 50px 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 215, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: none;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.result.show {
+    display: block;
+}
+
+.result .star-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.result .reason {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--light);
+    text-align: center;
+    line-height: 1.8;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.heart-decoration {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 2.5rem;
+    color: var(--accent);
+    opacity: 0.6;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.1); 
+    }
+}
+
+.restart-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    background: var(--primary);
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+}
+
+.error {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 0.95rem;
+    margin-top: 15px;
+    display: none;
+}
+
+.error.show {
+    display: block;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .search-box {
+        padding: 30px 25px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    #searchBtn {
+        width: 100%;
+    }
+
+    .result {
+        padding: 40px 30px;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .header .subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+}

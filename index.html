@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Razones Para Amarte ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars-background" id="starsBackground"></div>
+    <div class="shooting-stars" id="shootingStars"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>100 Razones</h1>
+            <p class="subtitle">PARA AMARTE</p>
+        </div>
+
+        <div class="search-box" id="searchBox">
+            <label for="starNumber">Ingresa el número de tu estrella</label>
+            <div class="input-group">
+                <input type="number" id="starNumber" placeholder="1-100" min="1" max="100">
+                <button id="searchBtn">Descubrir ✨</button>
+            </div>
+            <p class="error" id="error">Por favor mi amor ingresa un número válido del 1 al 100</p>
+        </div>
+
+        <div class="result" id="result">
+            <div class="star-number" id="displayNumber"></div>
+            <div class="reason" id="displayReason"></div>
+            <div class="heart-decoration">♡</div>
+            <button class="restart-btn" id="restartBtn">Empezar de nuevo ✨</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

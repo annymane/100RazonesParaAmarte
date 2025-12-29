@@ -97,7 +97,7 @@ const reasons = {
     95: "Tienes un lugar muy especial en mi corazón",
     96: "Me gustan tus manos y lo que haces con ellas guiño guiño",
     97: "Por enseñarme el verdadero significado del amor",
-    98: "Por ser mi compañero a pesar de las dificultades",
+    98: "Te amo porque haces especiales las cosas mas simples",
     99: "Por hacerme sentir la mujer más afortunada del mundo",
     100: "Porque te amo con todo mi corazón y siempre lo haré"
 };
